@@ -1,0 +1,12 @@
+{
+    "name": "hello-world-electron",
+    "version": "0.1.0",
+    "main": "./main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "devDependencies": {
+      "electron-packager": "^5.0.1",
+      "electron-prebuilt": "^0.30.3"
+    }
+}

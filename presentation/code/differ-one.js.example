@@ -1,0 +1,7 @@
+if (Plaform.OS === 'android') {
+   // Use an Android toolbar with a search icon
+} else (Platform.OS === 'ios') {
+   // Use a search bar that looks like iOS
+} else {
+  // Who knows?
+}

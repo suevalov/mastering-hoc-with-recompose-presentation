@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "SegoeUILight";
+    src: url("./fonts/SegoeUILight.eot");
+    src: url("./fonts/SegoeUILight.eot?#iefix")format("embedded-opentype"),
+    url("./fonts/SegoeUILight.woff") format("woff"),
+    url("./fonts/SegoeUILight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.spectacle-slide {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Firefox */
+
+_:-moz-tree-row(hover), .spectacle-deck {
+  perspective: 1000px;
+}
+
+_:-moz-tree-row(hover), ul .appear {
+  display: inline;
+}
+
+.suevalovComponent a {
+  color: #49848E;
+  display: inline-block;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 100;
+  border: none;
+}
+
+.thanksSlide__links {
+  margin-top: 20px;
+}
+
+.thanksSlide__links a {
+  font-family: 'Source Sans Pro', 'Open Sans', 'SegoeUILight', sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  margin-left: 10px;
+  display: block;
+  line-height: 1.9em;
+  text-decoration: none;
+  color: #A9ECF8;
+}
