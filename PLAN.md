@@ -13,6 +13,9 @@ where using a utility function makes sense by
 either removing boilerplate or making the code more
 readable.
 
+* What are higher-order components?
+* What are some use cases? Trade-offs?
+
 ## High Order Components
 
 High order components are functions that expect
