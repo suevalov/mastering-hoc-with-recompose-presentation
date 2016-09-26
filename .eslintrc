@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-airbnb",
+  "extends": "eslint-config-defaults/configurations/walmart/es6-react",
   "rules": {
     "comma-dangle": 0,
     "jsx-quotes": 0,
@@ -8,5 +8,10 @@
     "func-names": 0,
     "quotes": 0,
     "id-length": 0
+    "max-len": 0
+  },
+  "evn": {
+    "browser": true,
+    "node": true
   }
 }
