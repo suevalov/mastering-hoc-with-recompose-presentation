@@ -30,6 +30,7 @@ import createTheme from "./theme";
 import fonts from './theme/fonts';
 import colors from './theme/colors';
 
+import CodeSlide from 'spectacle-code-slide';
 import Suevalov from './components/Suevalov';
 
 // Require CSS
@@ -64,6 +65,7 @@ class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["fade"]} transitionDuration={500} progress="bar">
+
           <Slide transition={["fade"]} bgColor={colors.lightBlue}>
             <Heading size={1} fit>
               Mastering HOC with
@@ -76,6 +78,16 @@ class Presentation extends React.Component {
             </Heading>
             <Suevalov photo={images.me.replace("/", "")} />
           </Slide>
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require("!raw!../assets/code/example.example")}
+            ranges={[
+              { loc: [0, 1], title: "The Beginning!" },
+              { loc: [2, 6], note: "Here is a note" },
+              { loc: [4, 9] }
+            ]}
+          />
           <Slide transition={["fade"]} bgColor={colors.lightGray} notes="You can even put notes on your slide. How awesome is that?">
             <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="primary" textFont="primary">
