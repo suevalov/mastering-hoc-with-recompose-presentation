@@ -256,8 +256,9 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       list: {
         textAlign: "left",
-        listStylePosition: "outside",
-        padding: 0
+        listStylePosition: "inside",
+        padding: 0,
+        listStyleType: "none"
       },
       s: {
         strikethrough: {}

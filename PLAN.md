@@ -1,9 +1,6 @@
 # Mastering HOC with Recompose
 
-https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.t7htc0s57
-https://www.sitepoint.com/react-higher-order-components/
 https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e#.mg9vt8j7x
-http://jamesknelson.com/structuring-react-applications-higher-order-components/
 https://www.youtube.com/watch?v=zD_judE-bXk
 https://github.com/jxnblk/rebass-recomposed
 https://www.youtube.com/watch?v=MyX4Et5fqlY
@@ -32,7 +29,7 @@ more readable or easier to refactor later.
 ## Slide 3-5. What are HOC?
 
 As I've already mentioned you might be familiar with HOC, but
-anyway let's do a recap to be sure that we're on the same page.
+anyway let's do a recap to be sure that we're all on the same page.
 
 Higher-Order Component is a really fancy name for a really
 simple concept. It's a function that accepts the component and 
@@ -54,6 +51,9 @@ Probably the most familiar is `connect` from `react-redux` library.
 
 ## Slide 7. `radium` example
 
+Radium is a library that enhances the capability of inline styles by 
+enabling CSS pseudo selectors inside inline-styles.
+
 Following is a short technical explanation of Radium's inner workings:
 
 * Wrap the render function
@@ -65,6 +65,110 @@ Following is a short technical explanation of Radium's inner workings:
 
 ## Slide 8. `relay` example
 
-TBD
+Slightly different signature, but anyway it's a HOC. Relay takes a component,
+passes down some props, in this case the date that is being fetched from 
+GraphQL Endpoint. Actually, it's not only passes down props, but delay
+rendering until data dependency is resolved.
 
-## Slide 9. How do HOCs work?
+So, these three examples `connect`, `radium` and `relay` have different
+signatures, some different use cases, but each time you enhance the 
+behaviour of component by wrapping it by HOC.
+
+## Slide 9. What can I do with HOCs?
+
+At high level HOC enables you to:
+
+* Code reuse, logic abstraction
+* Render Highjacking
+* State abstraction and manipulation
+* Props manipulation
+
+We will see this items in more detail soon but first, we are going 
+to study the ways of implementing HOCs because the implementation 
+allows and restricts what you can actually do with an HOC.
+
+## Slide 10. How do HOCs work?
+
+How is it possible to change behavior of component from the outside?
+There're two ways to do that.
+
+1. Props Proxy / Parametrized Container Components
+2. Inheritance Inversion
+
+## Slide 11. Props Proxy
+
+What can be done with Props Proxy?
+
+* Manipulating props
+* Wrapping the WrappedComponent with other elements
+* Abstracting State
+
+### Manipulating Props
+
+You can read, add, edit and remove the props that are being passed 
+to the WrappedComponent.
+
+**Describe the code**
+
+The important part here is that the render method of the HOC returns 
+a React Element of the type of the WrappedComponent.
+
+### Wrapping the WrappedComponent with other elements
+
+### Abstracting state
+
+You can abstract state by providing props and callbacks to the WrappedComponent, 
+very similar to how container components will deal with presentational components.
+Let's review this pattern first.
+
+## Slide 12. Container vs Presentational Components
+
+There's pattern in React that separating components according to certain
+types of responsibilities they have.
+
+## Slide 13. Presentational Components. Post component example
+
+Some components are designed to be purely presentational. They simply
+accept props and return React elements.
+
+## Slide 14. Container Components. PostContainer example.
+
+Another components perform more complex tasks, like managing 
+subscriptions, fetching stuff, other business logic. These components
+are called Containers. They do all the heavy job before passing
+down props to 'light' presentational component, which is easy
+testable and reusable. Some people call these Smart vs. Dumb components.
+
+inheritance inversion
+naming using display name
+using as decorator
+
+recompose
+how it started
+
+-----------------------------------------------------------------------
+
+How do Higher-Order Components help me Structure My Application?
+
+Where patterns involve writing out code with a single purpose multiple 
+times across many components, HOCs allow you to confine code with 
+a single aim to a single place. Or in fancy talk, HOCs can help 
+your application achieve separation of concerns.
+
+
+The core rule is that quality HOCs do one thing, and do it well. 
+A HOC should perform a task which is clearly defined, 
+and unrelated to other tasks.
+
+- Will component code be clearer when using the HOC? 
+- Well-designed HOCs indicate what they actually do; patterns spend a long time explaining how they do it.
+
+- Will the application be easier to maintain with the HOC?
+- Confining code with a single purpose to a single location 
+  means updates to the code only need to happen in one place – 
+  not across the entire codebase.
+  
+- Can the HOC be re-used in other applications?
+- Reusable components indicate good separation from the application’s internals.
+
+

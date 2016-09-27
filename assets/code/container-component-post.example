@@ -1,0 +1,11 @@
+class PostContainer extends React.Component {
+  state = { post: null };
+  componentDidMount() {
+    fetch(`/posts/${this.props.id}`)
+      .then(post => this.setState({ post }));
+  }
+  render() {
+    const { post } = this.state;
+    return <Post {...this.props} {...post} />;
+  }
+}

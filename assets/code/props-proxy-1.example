@@ -1,0 +1,42 @@
+/* ------ Manipulating Props ------ */
+
+const withUser = (WrappedComponent) => {
+
+  return class extends React.Component {
+    render() {
+      const user = {
+        id: '007',
+        name: 'James Bond'
+      };
+      return (
+        <WrappedComponent
+          {...this.props}
+          user={user}
+        />
+      );
+    }
+  }
+
+}
+
+const PostWithUser = withUser(Post);
+
+
+
+/* ------ Wrapping in other components ------ */
+
+const inModal = (WrappedComponent) => {
+   return class extends React.Component {
+     return {
+       <Modal>
+         <WrappedComponent {...this.props} />
+       </Modal>
+     };
+   }
+}
+
+const PostInModal = inModal(Post);
+
+
+
+/* ------ Abstracting state and behavior ------ */

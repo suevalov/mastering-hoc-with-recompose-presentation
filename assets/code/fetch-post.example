@@ -1,0 +1,14 @@
+const fetchPost = (WrappedComponent) =>
+  class extends React.Component {
+    state = { post: null };
+    componentDidMount() {
+      fetch(`/posts/${this.props.id}`)
+        .then(post => this.setState({ post }));
+    }
+    render() {
+      const { post } = this.state;
+      return <WrappedComponent {...this.props} {...post} />;
+    }
+  }
+
+const PostContainer = fetchPost(Post);
