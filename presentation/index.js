@@ -39,7 +39,6 @@ require("./theme/index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
   me: require('../assets/me.png'),
   ironmanThanks: require('../assets/ironman-thanks.gif')
 };
@@ -51,7 +50,8 @@ const theme = createTheme(
     primary: colors.lightBlue,
     secondary: colors.navy,
     tertiary: colors.navy,
-    quartenary: colors.lightGray
+    quartenary: colors.lightGray,
+    white: colors.white
   },
   {
     primary: fonts.OpenSans,
@@ -81,30 +81,79 @@ class Presentation extends React.Component {
           </Slide>
 
           {/* Talk plan slide */}
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+            <List style={{ lineHeight: '2.4em' }}>
+              <ListItem>What are higher-order components?</ListItem>
+              <ListItem>What are some use cases?</ListItem>
+              <ListItem>Using recompose & building custom HOCs</ListItem>
+            </List>
+          </Slide>
 
+          {/* What HOC are? */}
+          <Slide transition={["fade"]} bgColor={colors.navy}>
+            <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
+              Component => EnhancedComponent
+            </Heading>
+          </Slide>
+          <Slide transition={["fade"]} bgColor={colors.navy}>
+            <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
+              (arg1, arg2, Component) =>
+            </Heading>
+            <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
+              EnhancedComponent
+            </Heading>
+          </Slide>
+          <Slide transition={["fade"]} bgColor={colors.navy}>
+            <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
+              (arg1, arg2) => (Component) =>
+            </Heading>
+            <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
+              EnhancedComponent
+            </Heading>
+          </Slide>
 
+          {/* `connect` example */}
           <CodeSlide
             transition={["fade"]}
             lang="js"
-            code={require("!raw!../assets/code/example.example")}
+            code={require("!raw!../assets/code/redux-connect.example")}
             ranges={[
-              { loc: [0, 1], title: "The Beginning!" },
-              { loc: [2, 6], note: "Here is a note" },
-              { loc: [4, 9] }
+              { loc: [0, 1], title: 'react-redux' },
+              { loc: [1, 2] },
+              { loc: [3, 9] },
+              { loc: [10, 13] },
+              { loc: [14, 17], note: '(arg1, arg2) => (Component) => EnhancedComponent' }
             ]}
           />
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray} notes="You can even put notes on your slide. How awesome is that?">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
-            </Heading>
-          </Slide>
+          {/* `radium` example */}
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require("!raw!../assets/code/radium.example")}
+            ranges={[
+              { loc: [0, 1], title: 'radium' },
+              { loc: [14, 25] },
+              { loc: [26, 28], note: '(Component) => EnhancedComponent' }
+            ]}
+          />
+
+          {/* `relay` example */}
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require("!raw!../assets/code/relay.example")}
+            ranges={[
+              { loc: [0, 1], title: 'relay' },
+              { loc: [2, 7] },
+              { loc: [8, 22], note: '(Component, arg1) => EnhancedComponent' }
+            ]}
+          />
 
           <Slide transition={["fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <CodePane
               lang="jsx"
-              source={require("raw!../assets/code/example.example")}
+              source={require("raw!../assets/code/redux-connect.example")}
               margin="20px auto"
             />
           </Slide>
@@ -163,6 +212,9 @@ class Presentation extends React.Component {
                 <Link textColor="primary" href="http://suevalov.com" target="__blank">Alex Suevalov</Link>
               </ListItem>
               <ListItem>
+                <Link textColor="primary" href="https://twitter.com/Suevalov" target="__blank">@suevalov</Link>
+              </ListItem>
+              <ListItem>
                 <Link textColor="primary" href="http://dataart.com" target="__blank">DataArt</Link>
               </ListItem>
               <ListItem>
@@ -170,9 +222,6 @@ class Presentation extends React.Component {
               </ListItem>
               <ListItem>
                 <Link textColor="primary" href="https://github.com/suevalov" target="__blank">https://github.com/suevalov</Link>
-              </ListItem>
-              <ListItem>
-                <Link textColor="primary" href="https://twitter.com/Suevalov" target="__blank">http://twitter.com/Suevalov</Link>
               </ListItem>
             </List>
           </Slide>

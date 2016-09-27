@@ -165,6 +165,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       content: {
         margin: "0 auto",
+        maxWidth: 1150,
         textAlign: "center"
       },
       codePane: {
@@ -255,7 +256,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       list: {
         textAlign: "left",
-        listStylePosition: "inside",
+        listStylePosition: "outside",
         padding: 0
       },
       s: {

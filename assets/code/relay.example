@@ -1,0 +1,25 @@
+import Relay from 'react-relay';
+
+function Todo({ todo }) {
+  return (
+    <div>#{todo.id} - {todo.text}</div>
+  );
+}
+
+export default Relay.createContainer(Todo, {
+  fragments: {
+    todo: () => Relay.QL`
+      fragment on Todo {
+        complete,
+        id,
+        text
+      }
+    `
+  }
+});
+
+
+
+
+
+

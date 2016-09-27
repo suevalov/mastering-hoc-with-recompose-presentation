@@ -28,6 +28,11 @@ class Suevalov extends Component {
           </Link>
         </div>
         <div>
+          <Link href="https://twitter.com/Suevalov" style={{ fontSize: '1.2em' }} target="__blank">
+            @suevalov
+          </Link>
+        </div>
+        <div>
           <Link href="http://dataart.com/" style={{ fontSize: '1.2em' }} target="__blank">
             DataArt
           </Link>

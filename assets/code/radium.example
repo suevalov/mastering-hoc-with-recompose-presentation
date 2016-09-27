@@ -1,0 +1,29 @@
+import Radium from 'radium';
+
+const styles = {
+  base: {
+    color: '#fff'
+  },
+  primary: {
+    background: '#0074D9'
+  },
+  warning: {
+    background: '#FF4136'
+  }
+};
+
+function Button (props) {
+  return (
+    <button
+      style={[
+        styles.base,
+        styles[props.kind]
+      ]}>
+      {props.children}
+    </button>
+  );
+}
+
+const ButtonWithRadium = Radium(Button);
+export default ButtonWithRadium;
+

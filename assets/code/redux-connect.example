@@ -1,0 +1,19 @@
+import { connect } from 'react-redux';
+import Component from './Component';
+
+const mapStateToProps = (state) => {
+  return {
+    bar: state.foo.bar,
+    // get some other stuff from `state`
+  };
+}
+
+const mapDispatchToProps = {
+   // ... bind some actions
+};
+
+const ConnectedComponent = connect(
+  mapStateToProps, mapDispatchToProps
+)(Component);
+
+
