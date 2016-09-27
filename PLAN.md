@@ -8,6 +8,9 @@ https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6
 http://jamesknelson.com/structuring-react-applications-higher-order-components/
 https://www.youtube.com/watch?v=zD_judE-bXk
 
+Slide 1.
+
+
 We will explore a couple of typical situations, 
 where using a utility function makes sense by
 either removing boilerplate or making the code more

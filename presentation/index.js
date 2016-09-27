@@ -40,8 +40,8 @@ require("./theme/index.css");
 const images = {
   city: require("../assets/city.jpg"),
   kat: require("../assets/kat.png"),
-  markdown: require("../assets/markdown.png"),
-  me: require('../assets/me.png')
+  me: require('../assets/me.png'),
+  ironmanThanks: require('../assets/ironman-thanks.gif')
 };
 
 preloader(images);
@@ -66,7 +66,8 @@ class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["fade"]} transitionDuration={500} progress="bar">
 
-          <Slide transition={["fade"]} bgColor={colors.lightBlue}>
+          {/* Intro slide */}
+          <Slide transition={["fade"]} bgColor={colors.lightBlue} notes="Introduce yourself">
             <Heading size={1} fit>
               Mastering HOC with
             </Heading>
@@ -78,6 +79,10 @@ class Presentation extends React.Component {
             </Heading>
             <Suevalov photo={images.me.replace("/", "")} />
           </Slide>
+
+          {/* Talk plan slide */}
+
+
           <CodeSlide
             transition={["fade"]}
             lang="js"
@@ -88,16 +93,18 @@ class Presentation extends React.Component {
               { loc: [4, 9] }
             ]}
           />
+
           <Slide transition={["fade"]} bgColor={colors.lightGray} notes="You can even put notes on your slide. How awesome is that?">
             <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="primary" textFont="primary">
               Wait what?
             </Heading>
           </Slide>
+
           <Slide transition={["fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <CodePane
               lang="jsx"
-              source={require("raw!../assets/deck.example")}
+              source={require("raw!../assets/code/example.example")}
               margin="20px auto"
             />
           </Slide>
@@ -147,6 +154,26 @@ class Presentation extends React.Component {
               <Appear><ListItem>React-Router navigation</ListItem></Appear>
               <Appear><ListItem>PDF export</ListItem></Appear>
               <Appear><ListItem>And...</ListItem></Appear>
+            </List>
+          </Slide>
+          <Slide transition={["fade"]} bgImage={images.ironmanThanks.replace("/", "")} bgDarken={0.55}>
+            <Heading size={1} fit caps textColor='primary'>Thank you!</Heading>
+            <List style={{ listStyle: 'none', textAlign: 'center' }}>
+              <ListItem>
+                <Link textColor="primary" href="http://suevalov.com" target="__blank">Alex Suevalov</Link>
+              </ListItem>
+              <ListItem>
+                <Link textColor="primary" href="http://dataart.com" target="__blank">DataArt</Link>
+              </ListItem>
+              <ListItem>
+                <Link textColor="primary" href="mailto:suevalov.me@gmail.com" target="__blank">suevalov.me@gmail.com</Link>
+              </ListItem>
+              <ListItem>
+                <Link textColor="primary" href="https://github.com/suevalov" target="__blank">https://github.com/suevalov</Link>
+              </ListItem>
+              <ListItem>
+                <Link textColor="primary" href="https://twitter.com/Suevalov" target="__blank">http://twitter.com/Suevalov</Link>
+              </ListItem>
             </List>
           </Slide>
         </Deck>
