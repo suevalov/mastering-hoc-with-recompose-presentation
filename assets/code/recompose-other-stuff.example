@@ -1,0 +1,23 @@
+/* ----------------- */
+
+const provide = store => withContext(
+  { store: PropTypes.object },
+  () => ({ store })
+)
+
+// Apply to base component
+// Descendants of App have access to context.store
+const AppWithContext = provide(store)(App)
+
+/* ----------------- */
+
+const identity = t => t
+const showSpinner = test => 
+  branch(
+    test,
+    renderComponent(Spinner),
+    identity
+  )
+
+const hasData = props => props.title && props.content;
+const PostWithSpinner = showSpinner(hasData)(Post);

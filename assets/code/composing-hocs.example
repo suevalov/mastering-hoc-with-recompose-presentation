@@ -1,0 +1,43 @@
+const BaseComponent = (props) => {...}
+
+// This will work, but it's tedious
+let EnhancedComponent = firstHoc(BaseComponent);
+EnhancedComponent = secondHoc(/*...args*/)(EnhancedComponent);
+EnhancedComponent = thirdHoc(/*...args*/)(EnhancedComponent);
+
+// Of course use can use ES7 decorators, but ...
+@thirdHoc(/*...args*/)
+@secondHoc(/*...args)
+@firstHoc
+class BaseComponent extends React.Component {
+    ...
+}
+
+// ... but using `compose` is better
+// props flow from top to bottom
+const enhance = compose(
+  thirdHoc(/*...args*/),
+  secondHoc(/*...args*/),
+  firstHoc
+)
+const EnhancedComponent = enhance(BaseComponent)
+
+
+function compose(...funcs) {
+  if (funcs.length === 0) {
+    return arg => arg
+  }
+  if (funcs.length === 1) {
+    return funcs[0]
+  }
+  const last = funcs[funcs.length - 1]
+  return (...args) => {
+    let result = last(...args)
+    for (let i = funcs.length - 2; i >= 0; i--) {
+      const f = funcs[i]
+      result = f(result)
+    }
+    return result
+  }
+}
+

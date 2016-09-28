@@ -1,0 +1,76 @@
+
+/*
+mapProps(
+  propsMapper: (ownerProps: Object) => Object
+): HigherOrderComponent
+*/
+
+const mapProps = propsMapper => WrappedComponent => props =>
+    <WrappedComponent {...propsMapper(props)} />
+
+const enhance = compose(
+  createContainer({
+    fragments: {
+      post: () => Relay.QL`
+        fragment on Post {
+          title,
+          content
+        }
+      `
+    }
+  }),
+  mapProps(props => {
+    const { post, ...rest } = props;
+    return {
+      title: post.title,
+      content: post.content,
+      ...rest
+    };
+  })
+)
+
+const Post = enhance(({ title, content }) =>
+  <article>
+    <h1>{title}</h1>
+    <div>{content}</div>
+  </article>
+)
+
+/* ---------------------- */
+
+/*
+withProps(
+  createProps: (ownerProps: Object) => Object | Object
+): HigherOrderComponent
+*/
+/*
+withPropsOnChange(
+  shouldMapOrKeys: Array<string> | (props: Object, nextProps: Object) => boolean,
+  createProps: (ownerProps: Object) => Object
+): HigherOrderComponent
+*/
+
+withProps(props => ({
+  title: props.post.title,
+  content: props.post.content
+})
+
+/* ---------------------- */
+
+/*
+flattenProp(
+  propName: string
+): HigherOrderComponent
+*/
+
+const enhance = compose(
+  withProps({
+    object: { a: 'a', b: 'b' },
+    c: 'c'
+  }),
+  flattenProp('object')
+)
+// Base component receives props: { a: 'a', b: 'b', c: 'c' }
+const Abc = enhance(BaseComponent)
+
+flattenProp('post')

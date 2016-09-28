@@ -190,11 +190,38 @@ and you can also add more state if you need to. Remember that you are messing
 with the state of the WrappedComponent which can lead to you breaking things.
 
 
-recompose
-how it started
+## Slide 20. Composing HOCs
 
-naming using display name
-using as decorator
+TBD
+
+## Slide 21. Recompose
+
+Ok, looks like we solid with what HOCs are and how we can use then in our applications.
+It's time to talk about library that significally has changed the way I write my React
+applications in a really short time.
+
+It's Recompose. Open-sourced by Andrew Clark, co-creator of Redux, in 2015.
+It's React utility belt for function components and higher-order components. Like Lodash, but for React.
+
+I always start with presentational components, as I think, as a lot people do nowdays.
+It's just nothing expect accepting props and returning React elements.
+It's a good approach cause it forces you to think about the contract between different
+parts of your application.
+
+And only after the presentational component is done, then I add a container component which
+do more complicated things.
+
+But at some point you realized that you need to add, let's say, some lifecycle hook, add a state, or
+class property for event handling. You have to create another container component
+or convert you perfectly polished functional component to class. Pain.
+
+Recompose helps you to ease the pain and enhance your presentational component by gradually using composition.
+
+## Slide 22. What can you do with Recompose
+
+Using Recompose you can do a lot of things.
+
+For example - lift state into functional wrappers.
 
 
 -----------------------------------------------------------------------
@@ -205,7 +232,6 @@ Where patterns involve writing out code with a single purpose multiple
 times across many components, HOCs allow you to confine code with 
 a single aim to a single place. Or in fancy talk, HOCs can help 
 your application achieve separation of concerns.
-
 
 The core rule is that quality HOCs do one thing, and do it well. 
 A HOC should perform a task which is clearly defined, 
@@ -221,5 +247,3 @@ and unrelated to other tasks.
   
 - Can the HOC be re-used in other applications?
 - Reusable components indicate good separation from the application’s internals.
-
-

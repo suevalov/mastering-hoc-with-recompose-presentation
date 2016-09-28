@@ -1,0 +1,13 @@
+const enhance = compose(
+  fetchPost,
+  showSpinner(props => !props.post),
+  flattenProp('post')
+)
+
+const Post = ({ title, content }) => 
+  <div>
+    <h1>{title}</h1>
+    <div>{content}</div>
+  </div>
+
+export default enhance(Post)

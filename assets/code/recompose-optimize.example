@@ -1,0 +1,12 @@
+// A component that is expensive to render
+const ExpensiveComponent = ({ propA, propB }) => {...}
+
+// Optimized version of same component, using shallow comparison of props
+// Same effect as React's PureRenderMixin
+const OptimizedComponent = pure(ExpensiveComponent)
+
+// Even more optimized: only updates if specific prop keys have changed
+const HyperOptimizedComponent = onlyUpdateForKeys([
+                                  'propA', 'propB'
+                                ])(ExpensiveComponent)
+

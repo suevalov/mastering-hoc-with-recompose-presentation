@@ -5,7 +5,6 @@ import React from "react";
 import {
   Appear,
   BlockQuote,
-  Cite,
   CodePane,
   Deck,
   Fill,
@@ -15,7 +14,6 @@ import {
   Link,
   ListItem,
   List,
-  Markdown,
   Quote,
   Slide,
   Spectacle,
@@ -39,7 +37,8 @@ require("./theme/index.css");
 
 const images = {
   me: require('../assets/me.png'),
-  ironmanThanks: require('../assets/ironman-thanks.gif')
+  ironmanThanks: require('../assets/ironman-thanks.gif'),
+  compose: require('../assets/compose.gif')
 };
 
 preloader(images);
@@ -169,7 +168,7 @@ class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.lightBlue}>
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
             <Heading size={3} color="primary">
               Props Proxy
             </Heading>
@@ -259,7 +258,7 @@ class Presentation extends React.Component {
             />
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.lightBlue}>
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
             <Heading size={3} color="primary">
               Props Proxy
             </Heading>
@@ -296,6 +295,111 @@ class Presentation extends React.Component {
               { loc: [41, 55] }
             ]}
           />
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/composing-hocs.example')}
+            style={{ fontSize: '0.8em' }}
+            ranges={[
+              { loc: [0, 1], title: 'Composing HOCs' },
+              { loc: [2, 6] },
+              { loc: [7, 14] },
+              { loc: [15, 23] },
+              { loc: [25, 26] },
+              { loc: [26, 29] },
+              { loc: [29, 32] },
+              { loc: [32, 41] }              
+            ]}
+          />
+
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+            <Heading size={2} fit caps style={{ fontWeight: 300 }}>
+              Recompose
+            </Heading>
+          </Slide>
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/with-state.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 0], title: 'lift state into functional wrappers' },
+              { loc: [0, 1] },
+              { loc: [1, 8] }
+            ]}
+          />
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/with-reducer.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 0], title: 'lift state in Redux style' },
+              { loc: [0, 10] },
+              { loc: [11, 12] },
+              { loc: [12, 19] }
+            ]}
+          />
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/recompose-optimize.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 0], title: 'optimize rendering performance' },
+              { loc: [0, 2] },
+              { loc: [3, 6] },
+              { loc: [7, 11] }
+            ]}
+          />
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/recompose-modify-props.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 0], title: 'modify props' },
+              { loc: [0, 2] },
+              { loc: [3, 6] },
+              { loc: [7, 11] }
+            ]}
+          />
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/recompose-other-stuff.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 0], title: 'do other awesome things' },
+              { loc: [0, 2] },
+              { loc: [3, 6] },
+              { loc: [7, 11] }
+            ]}
+          />
+
+          <Slide transition={["fade"]} bgImage={images.compose.replace("/", "")} bgDarken={0.55}>
+            <Heading size={3} textColor={colors.white}>
+              HOCs can be composed
+            </Heading>
+            <Heading size={3} textColor={colors.white}>
+              into more useful HOCs
+            </Heading>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor={colors.dark}>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/code/recompose-composed-post.example")}
+              margin="20px auto"
+              style={{ fontSize: '0.7em' }}
+            />
+          </Slide>
 
           <Slide transition={["fade"]} bgImage={images.ironmanThanks.replace("/", "")} bgDarken={0.55}>
             <Heading size={1} fit caps textColor='primary'>Thank you!</Heading>
