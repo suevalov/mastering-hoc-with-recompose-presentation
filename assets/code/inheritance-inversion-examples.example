@@ -1,0 +1,57 @@
+/* ------ Render Highjacking ------ */
+
+// Example 1. Conditional rendering.
+
+function authLocked(WrappedComponent) {
+  return class Enhancer extends WrappedComponent {
+    render() {
+      if (this.props.loggedIn) {
+        return super.render()
+      } else {
+        return null
+      }
+    }
+  }
+}
+
+// Example 2. Modifying the tree outputted by render.
+
+function jediify(WrappedComponent) {
+  return class Enhancer extends WrappedComponent {
+    render() {
+      const elementsTree = super.render()
+      let newProps = {};
+      if (elementsTree && elementsTree.type === 'input') {
+        newProps = {value: 'may the force be with you'}
+      }
+      const props = Object.assign({}, elementsTree.props, newProps)
+      const newElementsTree = React.cloneElement(
+        elementsTree, props, elementsTree.props.children
+      )
+      return newElementsTree
+    }
+  }
+}
+
+
+/* ------ Render Highjacking ------ */
+
+
+// Example 3. Debugging by accessing WrappedComponent’s props and state
+
+export function debug(WrappedComponent) {
+  return class Enhancer extends WrappedComponent {
+    render() {
+      return (
+        <div>
+          <h2>Debugger Component</h2>
+          <p>Props</p> <pre>{JSON.stringify(this.props, null, 2)}</pre>
+          <p>State</p><pre>{JSON.stringify(this.state, null, 2)}</pre>
+          {super.render()}
+        </div>
+      )
+    }
+  }
+}
+
+

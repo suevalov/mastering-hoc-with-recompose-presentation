@@ -131,7 +131,7 @@ types of responsibilities they have.
 Some components are designed to be purely presentational. They simply
 accept props and return React elements.
 
-## Slide 14. Container Components. PostContainer example.
+## Slide 14-16. Container Components. PostContainer example.
 
 Another components perform more complex tasks, like managing 
 subscriptions, fetching stuff, other business logic. These components
@@ -139,12 +139,63 @@ are called Containers. They do all the heavy job before passing
 down props to 'light' presentational component, which is easy
 testable and reusable. Some people call these Smart vs. Dumb components.
 
-inheritance inversion
-naming using display name
-using as decorator
+## Slide 17. Proxy Pass & Inheritance Inversion
+
+TBD
+
+## Slide 18. Trivial Inheritance Inversion example
+
+As you can see, the returned HOC class (Enhancer) extends the WrappedComponent. 
+It is called Inheritance Inversion because instead of the WrappedComponent 
+extending some Enhancer class, it is passively extended by the Enhancer. 
+In this way the relationship between them seems inverse.
+
+Inheritance Inversion allows the HOC to have access to the WrappedComponent 
+instance via this, which means it has access to the state, props, component 
+lifecycle hooks and the render method.
+
+React Elements describe what is going to be rendered when React runs it’s reconciliation process.
+
+Inheritance Inversion High Order Components don’t have a guaranty of having the full children tree resolved.
+
+## Slide 19. Extended examples of Inheritance Inversion
+
+What can you do with Inheritance Inversion?
+
+* Render Highjacking
+* Manipulating state
+
+### Render Highjacking
+
+It is called Render Highjacking because the HOC takes control of the render output of the 
+WrappedComponent and can do all sorts of stuff with it.
+
+In Render Highjacking you can:
+* Read, add, edit, remove props in any of the React Elements outputted by render
+* Read, and modify the React Elements tree outputted by render
+* Conditionally display the elements tree
+* Wrapping the element’s tree for styling purposes (as shown in Props Proxy)
+
+You cannot edit or create props of the WrappedComponent instance, 
+because a React Component cannot edit the props it receives, 
+but you can change the props of the elements that are outputted from the render method.
+
+You can do all sorts of stuff in here, you can traverse the entire elements tree and 
+change props of any element in the tree. This is exactly how Radium does its business.
+
+### Manipulating state
+
+The HOC can read, edit and delete state of the WrappedComponent instance, 
+and you can also add more state if you need to. Remember that you are messing 
+with the state of the WrappedComponent which can lead to you breaking things.
+
 
 recompose
 how it started
+
+naming using display name
+using as decorator
+
 
 -----------------------------------------------------------------------
 

@@ -271,6 +271,32 @@ class Presentation extends React.Component {
             </Heading>
           </Slide>
 
+          <Slide transition={["fade"]} bgColor={colors.dark}>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/code/inheritance-inversion.example")}
+              margin="20px auto"
+              style={{ fontSize: '1em' }}
+            />
+          </Slide>
+
+          <CodeSlide
+            transition={["fade"]}
+            lang="js"
+            code={require('!raw!../assets/code/inheritance-inversion-examples.example')}
+            style={{ fontSize: '0.7em' }}
+            ranges={[
+              { loc: [0, 1], title: 'Inheritance Inversion' },
+              { loc: [2, 3] },
+              { loc: [4, 15] },
+              { loc: [16, 17] },
+              { loc: [18, 34] },
+              { loc: [36, 37] },
+              { loc: [39, 40] },
+              { loc: [41, 55] }
+            ]}
+          />
+
           <Slide transition={["fade"]} bgImage={images.ironmanThanks.replace("/", "")} bgDarken={0.55}>
             <Heading size={1} fit caps textColor='primary'>Thank you!</Heading>
             <List style={{ listStyle: 'none', textAlign: 'center' }}>
