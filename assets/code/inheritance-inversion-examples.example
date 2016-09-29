@@ -34,7 +34,7 @@ function jediify(WrappedComponent) {
 }
 
 
-/* ------ Render Highjacking ------ */
+/* ------ Manipulating State ------ */
 
 
 // Example 3. Debugging by accessing WrappedComponent’s props and state

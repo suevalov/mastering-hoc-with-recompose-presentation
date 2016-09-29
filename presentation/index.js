@@ -83,7 +83,17 @@ class Presentation extends React.Component {
           </Slide>
 
           {/* Talk plan slide */}
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide transition={["fade"]} 
+                 bgColor={colors.lightGray}
+                 notes={`
+                  <ul>
+                    <li>a deep dive</li>  
+                    <li>might be familiar with</li>
+                    <li>explore a couple 
+of typical situations</li>
+                    <li>removing boilerplate, making more readable, easier to refactor</li>
+                  </ul>
+                 `}>
             <List style={{ lineHeight: '2.4em' }}>
               <ListItem>What are higher-order components?</ListItem>
               <ListItem>What are some use cases?</ListItem>
@@ -92,12 +102,31 @@ class Presentation extends React.Component {
           </Slide>
 
           {/* What HOC are? */}
-          <Slide transition={["fade"]} bgColor={colors.navy}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.navy}
+            notes={`
+                <ul>
+                  <li>let's do a recap - on the same page</li>
+                  <li>really fancy name for a really
+simple concept</li>
+                  <li>It's a function that accepts the component and 
+returns a new component which behavior is enhanced.</li>
+                </ul>
+            `}
+          >
             <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
               Component => EnhancedComponent
             </Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor={colors.navy}>
+
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.navy}
+            notes={`
+              They might also accept some additional parameters.
+            `}
+          >
             <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
               (arg1, arg2, Component) =>
             </Heading>
@@ -105,7 +134,14 @@ class Presentation extends React.Component {
               EnhancedComponent
             </Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor={colors.navy}>
+
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.navy}
+            notes={`
+              Or they might use currying. Good reason for that.  
+            `}
+          >
             <Heading textColor="white" size={5} style={{ fontFamily: fonts.Monospace }}>
               (arg1, arg2) => (Component) =>
             </Heading>
@@ -116,6 +152,10 @@ class Presentation extends React.Component {
 
           {/* `connect` example */}
           <CodeSlide
+            notes={`
+              Let's take a look on concrete examples.
+              Describe how 'react-redux' work.
+            `}
             transition={["fade"]}
             lang="js"
             code={require("!raw!../assets/code/redux-connect.example")}
@@ -130,6 +170,13 @@ class Presentation extends React.Component {
 
           {/* `radium` example */}
           <CodeSlide
+            notes={`
+              <ul>
+                <li>Radium is library for inline-styles approach and handling pseudo selectors.</li>
+                <li>Wrap the render function</li>
+                <li>Recurse into the result of the original render</li>
+              </ul>  
+            `}
             transition={["fade"]}
             lang="js"
             code={require("!raw!../assets/code/radium.example")}
@@ -142,6 +189,18 @@ class Presentation extends React.Component {
 
           {/* `relay` example */}
           <CodeSlide
+            notes={`
+              <ul>
+                <li>Slightly different signature</li>
+                <li>passes down the data that is being fetched from 
+GraphQL Endpoint</li>
+                <li>delay
+rendering until data dependency is resolved</li>
+                <li>'connect', 'radium' and 'relay' are different</li>
+                <li>but each time you enhance the 
+behaviour of component by wrapping it by HOC</li>
+              </ul>  
+            `}
             transition={["fade"]}
             lang="js"
             code={require("!raw!../assets/code/relay.example")}
@@ -152,7 +211,16 @@ class Presentation extends React.Component {
             ]}
           />
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.lightGray}
+            notes={`
+              <ul>
+                <li>will see this items in more detail</li>
+                <li>study the ways of implementing HOCs</li>
+              </ul>
+            `}
+          >
             <Heading size={3} color="primary">
               What can I do with HOC?
             </Heading>
@@ -172,7 +240,13 @@ class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.lightGray}
+            notes={`
+              There're two ways to do that  
+            `}
+          >
             <Heading size={3} color="primary">
               Props Proxy
             </Heading>
@@ -186,6 +260,16 @@ class Presentation extends React.Component {
 
           {/* Props Proxy */}
           <CodeSlide
+            notes={`
+              <ul>
+                <li>You can read, add, edit and remove the props that are being passed 
+to the WrappedComponent.</li>
+                <li>You can abstract state by providing props and callbacks, 
+similar to how container deal with presentational.
+</li>
+                <li>Let's review this pattern first.</li>
+              </ul>  
+            `}
             transition={["fade"]}
             lang="js"
             code={require('!raw!../assets/code/props-proxy-1.example')}
@@ -202,7 +286,16 @@ class Presentation extends React.Component {
             ]}
           />
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.lightGray}
+            notes={`
+              <ul>
+                <li>There's pattern in React that separating components according to certain
+types of responsibilities they have.</li>
+              </ul>  
+            `}
+          >
             <Heading size={3} color="primary">
               Container
             </Heading>
@@ -217,7 +310,14 @@ class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.dark}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.dark}
+            notes={`
+            Some components are designed to be purely presentational. They simply
+accept props and return React elements.
+            `}
+          >
             <CodePane
               lang="jsx"
               source={require("raw!../assets/code/presentational-component-post.example")}
@@ -226,7 +326,22 @@ class Presentation extends React.Component {
             />
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.dark}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.dark}
+            notes={`
+              <ul>
+                <li>
+                Another components perform more complex tasks: manage subs, fetch stuff, biz logic.
+                </li>
+                <li>These components
+are called Containers.</li>
+                <li>They do all the heavy job before passing
+down props</li>
+                <li>Some people call these Smart vs. Dumb components.</li>
+              </ul>  
+            `}
+          >
             <CodePane
               lang="jsx"
               source={require("raw!../assets/code/container-component-post.example")}
@@ -274,7 +389,21 @@ class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.dark}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.dark}
+            notes={`
+              <ul>
+                <li>(Enhancer) extends the WrappedComponent</li>
+                <li>called II, cause instead of the WrappedComponent 
+extending some Enhancer class</li>
+                <li>it is passively extended by the Enhancer</li>
+                <li>II allows the HOC to have access to the WrappedComponent 
+instance via this (state, props, component 
+lifecycle hooks)</li>
+              </ul>  
+            `}
+          >
             <CodePane
               lang="jsx"
               source={require("raw!../assets/code/inheritance-inversion.example")}
@@ -284,6 +413,14 @@ class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
+            notes={`
+              <ul>
+                <li>What can you do with Inheritance Inversion?</li>
+                <li>Render Highjacking because the HOC takes control of the render output of the 
+WrappedComponent and can do all sorts of stuff with it</li>
+                <li>cannot change received props, but can change output</li>
+              </ul>
+            `}
             transition={["fade"]}
             lang="js"
             code={require('!raw!../assets/code/inheritance-inversion-examples.example')}
@@ -317,7 +454,20 @@ class Presentation extends React.Component {
             ]}
           />
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.lightGray}
+            notes={`
+              <ul>
+                <li>looks like we solid with what HOCs are and how we can use then in our applications</li>
+                <li>has significally changed the way I develop</li>
+                <li>Open-sourced by Andrew Clark, co-creator of Redux, in 2015.</li>
+                <li>always start with presentational component</li>
+                <li>Recompose helps you to ease the pain and enhance your presentational component by gradually using composition.
+</li>
+              </ul>  
+            `}
+          >
             <Heading size={2} fit caps style={{ fontWeight: 300 }}>
               Recompose
             </Heading>
@@ -436,7 +586,19 @@ class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+          <Slide 
+            transition={["fade"]} 
+            bgColor={colors.lightGray}
+            notes={`
+              <ul>
+                <li> using higher-order component helpers leads to smaller, more focused components, and provides a better programming model</li>
+                <li>, any abstraction over an existing API is going to come with trade-offs</li>
+                <li>there is a performance overhead when introducing a new component to the tree</li>
+                <li>referentially transparent</li>
+                <li>Recompose uses a special version of createElement() that returns the output of stateless functions instead of creating a new element.</li>
+              </ul>
+            `}
+          >
             <Heading size={2}>Performance & Optimizations</Heading>
           </Slide>
 
@@ -461,7 +623,20 @@ class Presentation extends React.Component {
             </List>
           </Slide>
 
-          <Slide transition={["fade"]} bgImage={images.itnonstop.replace("/", "")} />
+          <Slide 
+            transition={["fade"]} 
+            bgImage={images.itnonstop.replace("/", "")} 
+            notes={`
+              <ul>
+                <li>a series of conferences organized by DataArt</li>
+                <li>IT NonStop conferences are held in 10 cities across Poland, Ukraine, and Russia.</li>
+                <li>Each of the conferences is focused on a particular aspect of IT development</li>
+                <li>10 December</li>
+                <li>We will talk about standards, elegant solutions and the latest trends of front-end development.</li>
+<li>Сomplex things in simple terms, that is the beauty of front-end.</li>
+              </ul>
+            `}
+          />
 
         </Deck>
       </Spectacle>

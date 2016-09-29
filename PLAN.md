@@ -1,15 +1,8 @@
 # Mastering HOC with Recompose
 
-https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e#.mg9vt8j7x
-https://www.youtube.com/watch?v=zD_judE-bXk
-https://github.com/jxnblk/rebass-recomposed
-https://www.youtube.com/watch?v=MyX4Et5fqlY
-
 ## Slide 1. Intro
 
-Hi everybody! My name is Alex Suevalov and i'm a front-end
-guy at DataArt. Just recently relocated to Wrocław from 
-rainy and windy Saint-Petersburg. Really glad to be here!
+Introduce.
 
 ## Slide 2. Plan.
 
@@ -66,7 +59,7 @@ Following is a short technical explanation of Radium's inner workings:
 ## Slide 8. `relay` example
 
 Slightly different signature, but anyway it's a HOC. Relay takes a component,
-passes down some props, in this case the date that is being fetched from 
+passes down some props, in this case the data that is being fetched from 
 GraphQL Endpoint. Actually, it's not only passes down props, but delay
 rendering until data dependency is resolved.
 
@@ -140,9 +133,6 @@ down props to 'light' presentational component, which is easy
 testable and reusable. Some people call these Smart vs. Dumb components.
 
 ## Slide 17. Proxy Pass & Inheritance Inversion
-
-TBD
-
 ## Slide 18. Trivial Inheritance Inversion example
 
 As you can see, the returned HOC class (Enhancer) extends the WrappedComponent. 
@@ -192,7 +182,6 @@ with the state of the WrappedComponent which can lead to you breaking things.
 
 ## Slide 20. Composing HOCs
 
-TBD
 
 ## Slide 21. Recompose
 
@@ -251,12 +240,18 @@ and unrelated to other tasks.
 -----
 IT NonStop – это серия международных IT конференций, которые организованы DataArt
  
-IT NonStop is a series of conferences organized by DataArt, a global technology consulting firm. IT NonStop conferences are held in 10 cities across Poland, Ukraine, and Russia. Each of the conferences is focused on a particular aspect of IT development but all of them are dedicated to specific projects and practical solutions.
+IT NonStop is a series of conferences organized by DataArt, a global technology consulting firm. 
+IT NonStop conferences are held in 10 cities across Poland, Ukraine, and Russia. 
+Each of the conferences is focused on a particular aspect of IT development but all of them are dedicated to specific projects and practical solutions.
  
 В этом году конференция во Вроцлаве будет 10 декабря 2016 года. Вход для участников бесплатный по предварительной регистрации. Формуляр для регистрации на сайте. Конференция посвящена фронт-енд разработке.
  
 Вот описание:
-Nowadays front-end development consists of elegant code and masterful solutions which can be achieved by JavaScript, AngularJS and other frameworks, layouts, rich media, design and many other tools. We will talk about standards, elegant solutions and the latest trends of front-end development. Сomplex things in simple terms, that is the beauty of front-end.
+Nowadays front-end development consists of elegant code 
+and masterful solutions which can be achieved by JavaScript, 
+AngularJS and other frameworks, layouts, rich media, design and many other tools. 
+We will talk about standards, elegant solutions and the latest trends of front-end development. 
+Сomplex things in simple terms, that is the beauty of front-end.
  
 Заявки от спикеров принимаем до 15 октября. Язык конференции английский.
 Спикерам компенсируем проживание, проезд, обед.
