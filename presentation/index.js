@@ -364,9 +364,16 @@ class Presentation extends React.Component {
             style={{ fontSize: '0.7em' }}
             ranges={[
               { loc: [0, 0], title: 'modify props' },
-              { loc: [0, 2] },
-              { loc: [3, 6] },
-              { loc: [7, 11] }
+              { loc: [0, 5] },
+              { loc: [6, 8] },
+              { loc: [10, 20] },
+              { loc: [20, 28] },
+              { loc: [30, 36] },
+              { loc: [39, 44] },
+              { loc: [45, 49] },
+              { loc: [52, 57] },
+              { loc: [58, 67] },
+              { loc: [68, 69] }
             ]}
           />
 
@@ -377,9 +384,9 @@ class Presentation extends React.Component {
             style={{ fontSize: '0.7em' }}
             ranges={[
               { loc: [0, 0], title: 'do other awesome things' },
-              { loc: [0, 2] },
-              { loc: [3, 6] },
-              { loc: [7, 11] }
+              { loc: [0, 8] },
+              { loc: [11, 18] },
+              { loc: [19, 21] }
             ]}
           />
 

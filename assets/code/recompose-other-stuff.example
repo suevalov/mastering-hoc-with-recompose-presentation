@@ -1,5 +1,3 @@
-/* ----------------- */
-
 const provide = store => withContext(
   { store: PropTypes.object },
   () => ({ store })
@@ -21,3 +19,5 @@ const showSpinner = test =>
 
 const hasData = props => props.title && props.content;
 const PostWithSpinner = showSpinner(hasData)(Post);
+
+

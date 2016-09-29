@@ -1,4 +1,3 @@
-
 /*
 mapProps(
   propsMapper: (ownerProps: Object) => Object
@@ -43,12 +42,6 @@ withProps(
   createProps: (ownerProps: Object) => Object | Object
 ): HigherOrderComponent
 */
-/*
-withPropsOnChange(
-  shouldMapOrKeys: Array<string> | (props: Object, nextProps: Object) => boolean,
-  createProps: (ownerProps: Object) => Object
-): HigherOrderComponent
-*/
 
 withProps(props => ({
   title: props.post.title,
@@ -74,3 +67,5 @@ const enhance = compose(
 const Abc = enhance(BaseComponent)
 
 flattenProp('post')
+
+
