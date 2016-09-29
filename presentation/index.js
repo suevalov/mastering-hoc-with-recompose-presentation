@@ -1,7 +1,8 @@
 // Import React
-import React from "react";
 
-// Import Spectacle Core tags
+import preloader from "spectacle/lib/utils/preloader";
+import CodeSlide from 'spectacle-code-slide';
+import React from "react";
 import {
   Appear,
   BlockQuote,
@@ -20,16 +21,17 @@ import {
   Text
 } from "spectacle";
 
-// Import image preloader util
-import preloader from "spectacle/lib/utils/preloader";
-
-// Import theme
+import colors from './theme/colors';
 import createTheme from "./theme";
 import fonts from './theme/fonts';
-import colors from './theme/colors';
-
-import CodeSlide from 'spectacle-code-slide';
 import Suevalov from './components/Suevalov';
+
+// Import Spectacle Core tags
+
+// Import image preloader util
+
+// Import theme
+
 
 // Require CSS
 require("normalize.css");
@@ -276,7 +278,7 @@ class Presentation extends React.Component {
               lang="jsx"
               source={require("raw!../assets/code/inheritance-inversion.example")}
               margin="20px auto"
-              style={{ fontSize: '1em' }}
+              style={{ fontSize: '0.9em' }}
             />
           </Slide>
 
@@ -419,7 +421,7 @@ class Presentation extends React.Component {
             <Heading size={2}>Pros</Heading>
             <List style={{ textAlign: 'center', lineHeight: '2.2em' }}>
               <ListItem>Less code dublication</ListItem>
-              <ListItem>Pushes to use composintion pattern</ListItem>
+              <ListItem>Pushes to use composition pattern</ListItem>
               <ListItem>Speed up development and refactoring</ListItem>
             </List>
           </Slide>
@@ -438,7 +440,7 @@ class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["fade"]} bgImage={images.ironmanThanks.replace("/", "")} bgDarken={0.55}>
-            <Heading size={1} fit caps textColor='primary'>Thank you!</Heading>
+            <Heading size={1} textColor='primary'>Thank you!</Heading>
             <List style={{ listStyle: 'none', textAlign: 'center' }}>
               <ListItem>
                 <Link textColor="primary" href="http://suevalov.com" target="__blank">Alex Suevalov</Link>

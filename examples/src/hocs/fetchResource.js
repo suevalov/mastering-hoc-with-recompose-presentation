@@ -16,7 +16,6 @@ const fetchResource = (get) => (WrappedComponent) => {
         );
     }
     render() {
-      const { resource } = this.state;
       return <WrappedComponent {...this.props} {...this.state} />;
     }
   }
