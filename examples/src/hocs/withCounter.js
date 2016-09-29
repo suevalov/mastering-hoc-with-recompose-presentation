@@ -6,7 +6,7 @@ export default compose(
     withState('count', 'setCount', 0),
     withHandlers({
         decrement: props => e => props.setCount(n => n - 1),
-        increment: props => e => setCount(n => n + 1),
-        reset: props => e => setCount(0)
+        increment: props => e => props.setCount(n => n + 1),
+        reset: props => e => props.setCount(0)
     })
 )
