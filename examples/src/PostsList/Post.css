@@ -1,0 +1,19 @@
+.Post-root {
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #F1F1F1;    
+}
+
+.Post-root h3 {
+    margin: 0;
+}
+
+.Post-content {
+    margin-top: 20px;    
+}
+
+.Post-root:hover {
+    background-color: #D1D1D1;    
+}
