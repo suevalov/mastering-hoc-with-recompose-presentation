@@ -2,8 +2,6 @@ import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 
-const withForm = withState('form', 'setForm', {})
-
 export default compose(
     withState('form', 'setForm', {}),
     withHandlers({
@@ -18,13 +16,13 @@ export default compose(
             ? value
             : value;
             props.setForm({
-                ...form,
+                ...props.form,
                 [name]: val
             });
         },
         onSubmit: props => e => {
             e.preventDefault()
-            props.onSubmit(form)
+            props.onSubmit(props.form)
         },
     })
 )
