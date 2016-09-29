@@ -247,3 +247,20 @@ and unrelated to other tasks.
   
 - Can the HOC be re-used in other applications?
 - Reusable components indicate good separation from the application’s internals.
+
+-----
+IT NonStop – это серия международных IT конференций, которые организованы DataArt
+ 
+IT NonStop is a series of conferences organized by DataArt, a global technology consulting firm. IT NonStop conferences are held in 10 cities across Poland, Ukraine, and Russia. Each of the conferences is focused on a particular aspect of IT development but all of them are dedicated to specific projects and practical solutions.
+ 
+В этом году конференция во Вроцлаве будет 10 декабря 2016 года. Вход для участников бесплатный по предварительной регистрации. Формуляр для регистрации на сайте. Конференция посвящена фронт-енд разработке.
+ 
+Вот описание:
+Nowadays front-end development consists of elegant code and masterful solutions which can be achieved by JavaScript, AngularJS and other frameworks, layouts, rich media, design and many other tools. We will talk about standards, elegant solutions and the latest trends of front-end development. Сomplex things in simple terms, that is the beauty of front-end.
+ 
+Заявки от спикеров принимаем до 15 октября. Язык конференции английский.
+Спикерам компенсируем проживание, проезд, обед.
+Будет онлайн трансляция и все записи будут доступны на канале ютуб после конференции в открытом доступе.
+Сайт конференции it-nonstop.net
+Через сайт можно подать тему, а также зарегестрироваться на конференцию.
+ 

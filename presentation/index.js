@@ -41,7 +41,8 @@ const images = {
   me: require('../assets/me.png'),
   ironmanThanks: require('../assets/ironman-thanks.gif'),
   compose: require('../assets/compose.gif'),
-  mindBlown: require('../assets/mind-blown.gif')
+  mindBlown: require('../assets/mind-blown.gif'),
+  itnonstop: require('../assets/it-non-stop.png')
 };
 
 preloader(images);
@@ -459,6 +460,9 @@ class Presentation extends React.Component {
               </ListItem>
             </List>
           </Slide>
+
+          <Slide transition={["fade"]} bgImage={images.itnonstop.replace("/", "")} />
+
         </Deck>
       </Spectacle>
     );
