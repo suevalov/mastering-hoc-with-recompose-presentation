@@ -1,0 +1,10 @@
+.PostsList-searchInput {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 2px solid lightblue;
+    outline: none;
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 20px;
+}

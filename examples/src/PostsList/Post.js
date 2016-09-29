@@ -1,15 +1,12 @@
-import React from 'react';
 import './Post.css';
-import compose from 'recompose/compose';
-import withToggle from '../hocs/withToggle';
 
-const Post = ({ title, content, toggle, open }) => (
-    <div className="Post-root" onClick={toggle}>
+import React from 'react';
+
+const Post = ({ title, content }) => (
+    <div className="Post-root">
         <h3 className="Post-header">{title}</h3>
-        {open && <div className="Post-content">{content}</div>}
+        <div className="Post-content">{content}</div>
     </div>
 );
 
-export default compose(
-    withToggle
-)(Post)
+export default Post
