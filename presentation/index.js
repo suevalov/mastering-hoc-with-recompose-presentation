@@ -38,7 +38,8 @@ require("./theme/index.css");
 const images = {
   me: require('../assets/me.png'),
   ironmanThanks: require('../assets/ironman-thanks.gif'),
-  compose: require('../assets/compose.gif')
+  compose: require('../assets/compose.gif'),
+  mindBlown: require('../assets/mind-blown.gif')
 };
 
 preloader(images);
@@ -406,6 +407,34 @@ class Presentation extends React.Component {
               margin="20px auto"
               style={{ fontSize: '0.7em' }}
             />
+          </Slide>
+
+          <Slide transition={["fade"]} bgImage={images.mindBlown.replace("/", "")} bgDarken={0.55}>
+            <Heading size={3} textColor={colors.white}>
+              Let's try to create something
+            </Heading>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+            <Heading size={2}>Pros</Heading>
+            <List style={{ textAlign: 'center', lineHeight: '2.2em' }}>
+              <ListItem>Less code dublication</ListItem>
+              <ListItem>Pushes to use composintion pattern</ListItem>
+              <ListItem>Speed up development and refactoring</ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+            <Heading size={2}>Cons</Heading>
+            <List style={{ textAlign: 'center', lineHeight: '2.2em' }}>
+              <ListItem>More complex for newcomers</ListItem>
+              <ListItem>Expensive to change when abstraction is wrong</ListItem>
+              <ListItem>Performance cavets</ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor={colors.lightGray}>
+            <Heading size={2}>Performance & Optimizations</Heading>
           </Slide>
 
           <Slide transition={["fade"]} bgImage={images.ironmanThanks.replace("/", "")} bgDarken={0.55}>
